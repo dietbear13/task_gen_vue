@@ -1,19 +1,14 @@
-/**
- * plugins/vuetify.ts
- *
- * Framework documentation: https://vuetifyjs.com`
- */
+import { defineNuxtPlugin } from '#app';
+import { createVuetify } from 'vuetify';
+import '@mdi/font/css/materialdesignicons.css';
+import 'vuetify/styles';
 
-// Styles
-import '@mdi/font/css/materialdesignicons.css'
-import 'vuetify/styles'
+export default defineNuxtPlugin((nuxtApp) => {
+  const vuetify = createVuetify({
+    theme: {
+      defaultTheme: 'dark',
+    },
+  });
 
-// Composables
-import { createVuetify } from 'vuetify'
-
-// https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
-export default createVuetify({
-  theme: {
-    defaultTheme: 'dark',
-  },
-})
+  nuxtApp.vueApp.use(vuetify);
+});

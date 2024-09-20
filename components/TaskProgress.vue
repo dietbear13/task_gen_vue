@@ -1,11 +1,17 @@
-<script setup lang="ts">
-
-</script>
-
 <template>
-  $END$
+  <v-container>
+    <h2>{{ topic }}</h2>
+    <v-progress-linear :value="progress" height="15" color="green">
+      <strong>{{ progress }}%</strong>
+    </v-progress-linear>
+  </v-container>
 </template>
 
-<style scoped>
-
-</style>
+<script>
+export default {
+  props: {
+    topic: String,
+    progress: Number,
+  },
+};
+</script>
